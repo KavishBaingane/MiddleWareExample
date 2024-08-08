@@ -9,16 +9,16 @@ app.MapGet("/", () => "Hello World!");
 //middleware 1 
 app.Use(async (HttpContext context, RequestDelegate next) =>
 {
-   await context.Response.WriteAsync("From MiddleWare One");
+   await context.Response.WriteAsync("From MiddleWare 1 \n");
     await next(context);
 });
 
 //middleware 2
-app.UseMiddleware<MyCustomMiddleWare>();
-
+//app.UseMiddleware<MyCustomMiddleWare>();
+app.UseMyCustomMiddleWare();
 app.Run(async (context) =>
 {
-    await context.Response.WriteAsync("From MiddleWare Three");
+    await context.Response.WriteAsync("From MiddleWare 3 \n");
 });
 
 app.Run();
