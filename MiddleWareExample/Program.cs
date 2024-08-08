@@ -15,7 +15,7 @@ app.Use(async (HttpContext context, RequestDelegate next) =>
 
 //middleware 2
 //app.UseMiddleware<MyCustomMiddleWare>();
-app.UseMyCustomMiddleWare();
+app.UseHelloCustomMiddleware();
 app.Run(async (context) =>
 {
     await context.Response.WriteAsync("From MiddleWare 3 \n");
